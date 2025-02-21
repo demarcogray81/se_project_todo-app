@@ -1,3 +1,6 @@
+import { v4 as uuidv4 } from "https://jspm.dev/uuid";
+console.log(uuidv4());
+
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 
@@ -18,8 +21,9 @@ const closeModal = (modal) => {
 
 // The logic in this function should all be handled in the Todo class.
 const generateTodo = (data) => {
-  const Todo = new Todo(data, #todo-template);
-  const todoElement = todo.getView();
+  const todoInstance = new Todo(data, "#todo-template");
+  const todoElement = todoInstance.getView();
+  return todoElement;
   // const todoElement = todoTemplate.content
   //   .querySelector(".todo")
   //   .cloneNode(true);
@@ -51,8 +55,6 @@ const generateTodo = (data) => {
   // todoDeleteBtn.addEventListener("click", () => {
   //   todoElement.remove();
   // });
-
-  // return todoElement;
 };
 
 addTodoButton.addEventListener("click", () => {
@@ -72,7 +74,8 @@ addTodoForm.addEventListener("submit", (evt) => {
   const date = new Date(dateInput);
   date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
-  const values = { name, date };
+  const id = uuidv4();
+  const values = { name, date, id };
   const todo = generateTodo(values);
   todosList.append(todo);
   closeModal(addTodoPopup);
