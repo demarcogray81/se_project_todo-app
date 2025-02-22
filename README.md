@@ -8,8 +8,8 @@ Can create new todos and assign a date to them. When finished with them you can 
 
 ## Technology
 
-![Interface of todo App](<Simple ToDo App - Google Chrome 2_21_2025 7_49_25 PM.png>)
-![Add task Screen](<Simple ToDo App - Google Chrome 2_21_2025 7_51_45 PM.png>)
+[Interface of todo App](<Simple ToDo App - Google Chrome 2_21_2025 7_49_25 PM.png>)
+[Add task Screen](<Simple ToDo App - Google Chrome 2_21_2025 7_51_45 PM.png>)
 
 ## Deployment
 
