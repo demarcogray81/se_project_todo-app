@@ -1,7 +1,5 @@
 class Todo {
   constructor(data, selector) {
-    console.log(data);
-    console.log(selector);
     this._data = data;
     this._templateElement = document.querySelector(selector);
   }
@@ -34,7 +32,6 @@ class Todo {
 
     todoNameEl.textContent = this._data.name;
 
-    // ✅ Ensure date exists before formatting
     if (this._data.date) {
       const dueDate = new Date(this._data.date);
       if (!isNaN(dueDate)) {

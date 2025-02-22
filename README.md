@@ -1,17 +1,18 @@
 # Simple Todo App
 
-Give a brief description of the project here. Feel free to give it a different name.
+A reminders app where you can make a list of todos and also check them off when done.
 
 ## Functionality
 
-Give a more detailed explanation of the project and its functionality.
+Can create new todos and assign a date to them. When finished with them you can check them off or even delete them completely.
 
 ## Technology
 
-Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+![Interface of todo App](<Simple ToDo App - Google Chrome 2_21_2025 7_49_25 PM.png>)
+![Add task Screen](<Simple ToDo App - Google Chrome 2_21_2025 7_51_45 PM.png>)
 
 ## Deployment
 
 This project is deployed on GitHub Pages:
 
-- ADD LINK HERE
+-(https://github.com/demarcogray81/se_project_todo-app)
