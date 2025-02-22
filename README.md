@@ -15,4 +15,4 @@ Can create new todos and assign a date to them. When finished with them you can 
 
 This project is deployed on GitHub Pages:
 
-- [Todo Demo View](https://github.com/demarcogray81/se_project_todo-app.git)
+- [Todo Demo View](https://demarcogray81.github.io/se_project_todo-app/)
