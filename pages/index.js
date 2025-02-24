@@ -6,7 +6,7 @@ import FormValidator from "../components/FormValidator.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
-const addTodoForm = addTodoPopup.querySelector(".popup__form");
+const addTodoForm = document.forms["add-todo-form"];
 const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
 
@@ -30,10 +30,9 @@ function closeOnEscape(evt) {
 }
 
 // The logic in this function should all be handled in the Todo class.
-const generateTodo = (data) => {
-  const todoInstance = new Todo(data, "#todo-template");
-  const todoElement = todoInstance.getView();
-  return todoElement;
+const renderTodo = (data) => {
+  const todo = new Todo(data, "#todo-template").getView();
+  todosList.append(todo);
 };
 
 addTodoButton.addEventListener("click", () => {
@@ -46,6 +45,7 @@ addTodoCloseBtn.addEventListener("click", () => {
 
 addTodoForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
+
   const name = evt.target.name.value;
   const dateInput = evt.target.date.value;
 
@@ -55,15 +55,14 @@ addTodoForm.addEventListener("submit", (evt) => {
 
   const id = uuidv4();
   const values = { name, date, id };
-  const todo = generateTodo(values);
-  todosList.append(todo);
+
+  renderTodo(values);
+  addTodoForm.reset();
+  formVal.resetValidation();
   closeModal(addTodoPopup);
 });
 
-initialTodos.forEach((item) => {
-  const todo = generateTodo(item);
-  todosList.append(todo);
-});
+initialTodos.forEach(renderTodo);
 
 const formVal = new FormValidator(validationConfig, addTodoForm);
 formVal.enableValidation();
