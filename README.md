@@ -19,4 +19,3 @@ This project is deployed on GitHub Pages:
 - [ADD LINK HERE](https://github.com/demarcogray81/se_project_todo-app)
 =======
 - [Todo Demo View](https://demarcogray81.github.io/se_project_todo-app/)
->>>>>>> da0100629c4bc94d893fd5f7a2fa5bc6fcaf9c84
