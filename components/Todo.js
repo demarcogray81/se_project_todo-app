@@ -1,15 +1,25 @@
 class Todo {
-  constructor(data, selector) {
+  constructor(data, selector, todoCounter, handleCheck, handleDelete) {
     this._data = data;
     this._templateElement = document.querySelector(selector);
+    this._todoCounter = todoCounter;
+    this._handleCheck = handleCheck;
+    this._handleDelete = handleDelete;
   }
 
   _setEventListener() {
-    this._todoCheckboxEl.addEventListener("change", () => {
-      this._data.completed = !this._data.completed;
+    // Checkbox listener
+    this._todoCheckboxEl.addEventListener("click", () => {
+      this._handleCheck(this._todoCheckboxEl.checked);
     });
+
     this._todoDeleteBtn.addEventListener("click", () => {
       this._todoElement.remove();
+      this._todoCounter.updateTotal(false); // decrease total count
+      if (this._todoCheckboxEl.checked) {
+        // Check the current checkbox state instead of _data
+        this._todoCounter.updateCompleted(false); // decrease completed count only if it was completed
+      }
     });
   }
 
@@ -41,6 +51,8 @@ class Todo {
           day: "numeric",
         })}`;
       }
+    } else {
+      todoDate.remove(); // Remove the date element completely if there's no date
     }
 
     this._generateCheckBoxEl();
