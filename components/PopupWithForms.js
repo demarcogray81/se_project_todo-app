@@ -5,22 +5,20 @@ class PopupWithForm extends Popup {
     super({ popupSelector });
     this._handleFormSubmit = handleFormSubmit;
     this._form = this._popupElement.querySelector(".popup__form");
+    this._inputElements = Array.from(
+      this._form.querySelectorAll(".popup__input")
+    );
+  }
+
+  getForm() {
+    return this._form;
   }
 
   _getInputValues() {
-    const inputElements = this._form.querySelectorAll(".popup__input");
     const formData = {};
-
-    inputElements.forEach((input) => {
-      if (input.name === "date") {
-        const date = new Date(input.value);
-        date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-        formData[input.name] = date;
-      } else {
-        formData[input.name] = input.value.trim();
-      }
+    this._inputElements.forEach((input) => {
+      formData[input.name] = input.value;
     });
-
     return formData;
   }
 
@@ -35,7 +33,6 @@ class PopupWithForm extends Popup {
 
   close() {
     super.close();
-    this._form.reset();
   }
 }
 
